@@ -26,7 +26,7 @@ public class Jugador: MonoBehaviour
     }
 
 
-    private void Update(){
+    void Update(){
         transformJugador.position = movementScript.Mover(transformJugador, nuevaPosicionMovimiento, velocidad);
     }
 

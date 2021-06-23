@@ -33,6 +33,7 @@ public class Bala : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D otherObject){
         GameObject objeto = otherObject.gameObject;
         if (objeto.tag == "Enemy"){
+            Score.PlayerScore += 10;
             Destroy(objeto);
             this.DestruirBala();
         }
