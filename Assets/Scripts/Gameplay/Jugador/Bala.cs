@@ -13,13 +13,13 @@ public class Bala : MonoBehaviour
 
     void Update()
     {
-        MoverHaciaLaDerecha();
+        MoverHaciaArriba();
         if (TraspasaLimiteDePantalla())
             DestruirBala();
     }
 
-    private void MoverHaciaLaDerecha(){
-        posicion.position += Vector3.right * Time.deltaTime * 8f;
+    private void MoverHaciaArriba(){
+        posicion.position += Vector3.up * Time.deltaTime * 8f;
     }
     private bool TraspasaLimiteDePantalla(){
         if (posicion.position.x > ObtenerLimiteDePantalla().x) return true;
@@ -27,6 +27,18 @@ public class Bala : MonoBehaviour
     }
     private Vector2 ObtenerLimiteDePantalla(){
         return Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D otherObject){
+        GameObject objeto = otherObject.gameObject;
+        if (objeto.tag == "Enemy"){
+            Destroy(objeto);
+            this.DestruirBala();
+        }
+        
+
+
     }
 
     private void DestruirBala(){
