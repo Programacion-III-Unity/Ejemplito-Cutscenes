@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     private Jugador jugadorScript;
-    private Score score;
 
     private void Start()
     {
         jugadorScript = GameObject.Find("Personaje").GetComponent<Jugador>(); // BUG: Lo instanciamos a mano porque no lo toma del inspector
-        score = GameObject.Find("Score").GetComponent<Score>();
     }
     public void DisparoDelJugador(){
         jugadorScript.Disparar();
