@@ -7,16 +7,19 @@ public class Score : MonoBehaviour {
 
     private Text scoreText;
     [SerializeField] private GameObject winText;
+    [SerializeField] private GameManager gameManager;
+
 
     private void Start()
     {
         scoreText = GetComponent<Text>();
+        gameManager = GetComponent<GameManager>();
     }
 
     private void Update(){
         scoreText.text = "Score: " + PlayerScore;
 
-        if(PlayerScore == 20)
+        if(PlayerScore == 90)
         {
 
             winText.SetActive(true);

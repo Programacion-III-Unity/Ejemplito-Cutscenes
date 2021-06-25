@@ -2,14 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Jugador: MonoBehaviour
 {
     [SerializeField] private GameObject bala;
     [SerializeField] private float velocidad;
-    [SerializeField] private InputScript inputScript;
     [SerializeField] private MovementScript movementScript;
+    [SerializeField] private GameManager gameManager;
      
     Transform transformJugador; 
     private Vector2 nuevaPosicionMovimiento;
@@ -18,7 +17,7 @@ public class Jugador: MonoBehaviour
     void Start() {
         transformJugador = GetComponent<Transform>();
         movementScript = GetComponent<MovementScript>();
-        inputScript = GetComponent<InputScript>();
+        gameManager = GetComponent<GameManager>();
     }
 
     public void SetNuevaPosicionMovimiento(Vector2 posicion){
