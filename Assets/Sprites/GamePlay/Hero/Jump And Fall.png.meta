@@ -1,0 +1,456 @@
+fileFormatVersion: 2
+guid: 4c4e2a177f7600045b567f8f3320b800
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7591849434391067890
+    second: Jump And Fall_0
+  - first:
+      213: -4498026298272327826
+    second: Jump And Fall_1
+  - first:
+      213: -1864029073464736394
+    second: Jump And Fall_2
+  - first:
+      213: 3934712537013113800
+    second: Jump And Fall_3
+  - first:
+      213: -1240084260946234317
+    second: Jump And Fall_4
+  - first:
+      213: -6572339277183591063
+    second: Jump And Fall_5
+  - first:
+      213: -3469961305713416190
+    second: Jump And Fall_6
+  - first:
+      213: 6238676941051559550
+    second: Jump And Fall_7
+  - first:
+      213: 5439429102851885568
+    second: Jump And Fall_8
+  - first:
+      213: 8046503317961379881
+    second: Jump And Fall_9
+  - first:
+      213: -9080904500961260322
+    second: Jump And Fall_10
+  - first:
+      213: -2590791110291254377
+    second: Jump And Fall_11
+  - first:
+      213: 6309588369432643961
+    second: Jump And Fall_12
+  - first:
+      213: 1073716320427811413
+    second: Jump And Fall_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jump And Fall_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 20
+        width: 24
+        height: 30
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc312556daab5960800000000000000
+      internalID: 7591849434391067890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_1
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 20
+        width: 24
+        height: 30
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67dc1dc9ecc391c0800000000000000
+      internalID: -4498026298272327826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_2
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 20
+        width: 24
+        height: 30
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67542290f63a126e0800000000000000
+      internalID: -1864029073464736394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 22
+        width: 19
+        height: 31
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c351f59438ea9630800000000000000
+      internalID: 3934712537013113800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_4
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 26
+        width: 18
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3343fb65fe55acee0800000000000000
+      internalID: -1240084260946234317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_5
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 33
+        width: 23
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ddf18cf3c5ac4a0800000000000000
+      internalID: -6572339277183591063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_6
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 35
+        width: 23
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208e99cb39838dfc0800000000000000
+      internalID: -3469961305713416190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_7
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 34
+        width: 19
+        height: 27
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e7ccbbf9b349650800000000000000
+      internalID: 6238676941051559550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_8
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 28
+        width: 20
+        height: 27
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a886023fbbc7b40800000000000000
+      internalID: 5439429102851885568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_9
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 25
+        width: 20
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920171fa22ceaaf60800000000000000
+      internalID: 8046503317961379881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_10
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 20
+        width: 26
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc45f418752af180800000000000000
+      internalID: -9080904500961260322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_11
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 20
+        width: 24
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79399d73639ab0cd0800000000000000
+      internalID: -2590791110291254377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_12
+      rect:
+        serializedVersion: 2
+        x: 1844
+        y: 20
+        width: 24
+        height: 30
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97908fe3139209750800000000000000
+      internalID: 6309588369432643961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump And Fall_13
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 20
+        width: 24
+        height: 30
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552a3acfd4b96ee00800000000000000
+      internalID: 1073716320427811413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
