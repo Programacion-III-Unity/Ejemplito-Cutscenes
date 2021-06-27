@@ -12,17 +12,18 @@ public class InputScript : MonoBehaviour
         gameManager = GetComponent<GameManager>();
     }
 
-    public void OnDisparo(InputValue value){
+    public void OnAttack
+        (InputValue value){
         if ((float)value.Get() == 1f){
             gameManager.DisparoDelJugador();
         }
     }
 
-    public void OnMovimiento(InputValue value){
+    public void OnMove(InputValue value) { 
         gameManager.MoveJugador((Vector2)value.Get());
     }
 
-    public void OnSalir(InputValue value){
+    public void OnExit(InputValue value){
         gameManager.SalirDelJuego();
     }
 

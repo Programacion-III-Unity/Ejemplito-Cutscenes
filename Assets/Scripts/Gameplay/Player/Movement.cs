@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     [SerializeField] Jugador jugadorScript;
 
@@ -10,14 +10,15 @@ public class MovementScript : MonoBehaviour
         jugadorScript = GetComponent<Jugador>();
     }
 
-    public Vector2 Mover(Transform gameObject, Vector2 nuevaPosicion, float velocidad){
+
+
+    public Vector2 MoveHorizontally(Transform gameObject, Vector2 nuevaPosicion, float velocidad){
         gameObject.Translate(Vector3.right * nuevaPosicion.x * Time.deltaTime * velocidad);
-        gameObject.Translate(Vector3.up * nuevaPosicion.y * Time.deltaTime * velocidad);
         gameObject.position = new Vector3(
             ClamplearEjeX(gameObject.position.x),
-            ClamplearEjeY(gameObject.position.y),
+            gameObject.position.y,
             gameObject.position.z
-        );
+        ) ;
 
         return gameObject.position;
     }

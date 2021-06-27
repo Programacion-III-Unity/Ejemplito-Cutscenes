@@ -7,8 +7,11 @@ public class Jugador: MonoBehaviour
 {
     [SerializeField] private GameObject bala;
     [SerializeField] private float velocidad;
-    [SerializeField] private MovementScript movementScript;
+    [SerializeField] private Movement movementScript;
+    [SerializeField] private Animation animationScript;
+    [SerializeField] private Renderer rendererScript;
     [SerializeField] private GameManager gameManager;
+
      
     Transform transformJugador; 
     private Vector2 nuevaPosicionMovimiento;
@@ -16,21 +19,31 @@ public class Jugador: MonoBehaviour
     
     void Start() {
         transformJugador = GetComponent<Transform>();
-        movementScript = GetComponent<MovementScript>();
+        movementScript = GetComponent<Movement>();
         gameManager = GetComponent<GameManager>();
+        animationScript = GetComponent<Animation>();
+        rendererScript = GetComponent<Renderer>();
     }
 
-    public void SetNuevaPosicionMovimiento(Vector2 posicion){
+    public void SetMovementPositionAndRotation(Vector2 posicion){
         this.nuevaPosicionMovimiento = posicion;
+        flip(posicion.x);
     }
 
+    private void flip(float x){
+        if (x < 0) rendererScript.Flip("left");
+        if (x > 0) rendererScript.Flip("right");
+    }
 
     void Update(){
-        transformJugador.position = movementScript.Mover(transformJugador, nuevaPosicionMovimiento, velocidad);
+        Walk();
     }
 
-    
-    
+    private void Walk(){
+        transformJugador.position = movementScript.MoveHorizontally(transformJugador, nuevaPosicionMovimiento, velocidad);
+        animationScript.DoWalk(nuevaPosicionMovimiento.x);
+        
+    }
 
     public void Disparar(){
         GameObject nuevaBala;

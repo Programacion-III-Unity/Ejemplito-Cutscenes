@@ -19,7 +19,7 @@ public class @Input : IInputActionCollection, IDisposable
             ""id"": ""244cc7f1-b0ff-4230-a3af-92f4b72309a3"",
             ""actions"": [
                 {
-                    ""name"": ""Disparo"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""92e9aba3-0c5a-4f82-aaf0-b458c203019c"",
                     ""expectedControlType"": ""Button"",
@@ -27,7 +27,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Salir"",
+                    ""name"": ""Exit"",
                     ""type"": ""Button"",
                     ""id"": ""1b50fd05-64ad-44ef-9b83-f5a12203b1c9"",
                     ""expectedControlType"": ""Button"",
@@ -35,10 +35,18 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Movimiento"",
+                    ""name"": ""Move"",
                     ""type"": ""PassThrough"",
                     ""id"": ""f3983f05-5eac-4028-a787-560eaadcad71"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef8a8c46-f878-49ea-9b1a-107935ed5d82"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -51,7 +59,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Disparo"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -62,18 +70,18 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Disparo"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""3530f3ba-afcf-459a-bee6-cdb3bb5c27d5"",
-                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""path"": ""<XInputController>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Disparo"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -84,7 +92,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -95,7 +103,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -106,7 +114,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -117,7 +125,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -128,7 +136,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -139,7 +147,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -150,7 +158,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -161,7 +169,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -172,7 +180,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -183,7 +191,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -194,7 +202,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -205,7 +213,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movimiento"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -216,7 +224,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Salir"",
+                    ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -227,7 +235,7 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Salir"",
+                    ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -238,7 +246,18 @@ public class @Input : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Salir"",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1eb3990-0bc7-40f2-94c5-67f0fbe26213"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -277,9 +296,10 @@ public class @Input : IInputActionCollection, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Disparo = m_Player.FindAction("Disparo", throwIfNotFound: true);
-        m_Player_Salir = m_Player.FindAction("Salir", throwIfNotFound: true);
-        m_Player_Movimiento = m_Player.FindAction("Movimiento", throwIfNotFound: true);
+        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Exit = m_Player.FindAction("Exit", throwIfNotFound: true);
+        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -329,16 +349,18 @@ public class @Input : IInputActionCollection, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Disparo;
-    private readonly InputAction m_Player_Salir;
-    private readonly InputAction m_Player_Movimiento;
+    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Exit;
+    private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_Jump;
     public struct PlayerActions
     {
         private @Input m_Wrapper;
         public PlayerActions(@Input wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Disparo => m_Wrapper.m_Player_Disparo;
-        public InputAction @Salir => m_Wrapper.m_Player_Salir;
-        public InputAction @Movimiento => m_Wrapper.m_Player_Movimiento;
+        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @Exit => m_Wrapper.m_Player_Exit;
+        public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -348,28 +370,34 @@ public class @Input : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Disparo.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisparo;
-                @Disparo.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisparo;
-                @Disparo.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDisparo;
-                @Salir.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSalir;
-                @Salir.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSalir;
-                @Salir.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSalir;
-                @Movimiento.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovimiento;
-                @Movimiento.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovimiento;
-                @Movimiento.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovimiento;
+                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @Exit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExit;
+                @Exit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExit;
+                @Exit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExit;
+                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Disparo.started += instance.OnDisparo;
-                @Disparo.performed += instance.OnDisparo;
-                @Disparo.canceled += instance.OnDisparo;
-                @Salir.started += instance.OnSalir;
-                @Salir.performed += instance.OnSalir;
-                @Salir.canceled += instance.OnSalir;
-                @Movimiento.started += instance.OnMovimiento;
-                @Movimiento.performed += instance.OnMovimiento;
-                @Movimiento.canceled += instance.OnMovimiento;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Exit.started += instance.OnExit;
+                @Exit.performed += instance.OnExit;
+                @Exit.canceled += instance.OnExit;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -394,8 +422,9 @@ public class @Input : IInputActionCollection, IDisposable
     }
     public interface IPlayerActions
     {
-        void OnDisparo(InputAction.CallbackContext context);
-        void OnSalir(InputAction.CallbackContext context);
-        void OnMovimiento(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
