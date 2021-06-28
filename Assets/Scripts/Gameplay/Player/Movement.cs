@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
 
 
     public Vector2 MoveHorizontally(Transform gameObject, Vector2 nuevaPosicion, float velocidad){
-        gameObject.Translate(Vector3.right * nuevaPosicion.x * Time.deltaTime * velocidad);
+        gameObject.Translate(Vector3.right * nuevaPosicion.x * Time.deltaTime * velocidad, Space.World);
         gameObject.position = new Vector3(
             ClamplearEjeX(gameObject.position.x),
             gameObject.position.y,

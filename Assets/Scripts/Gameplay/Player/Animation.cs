@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,13 +18,22 @@ public class Animation : MonoBehaviour
 
         if (speed == 0f){
             this.Animator.speed = 1f;
-            this.Animator.SetBool("Running", false);
+            this.Animator.SetBool("Run", false);
+        
         }
         else{
-            
+        
             this.Animator.speed = Mathf.Abs(Mathf.Clamp(speed,0.5f,1f));
-            this.Animator.SetBool("Running", true);
+            this.Animator.SetBool("Run", true);
         }
-    } 
+    }
 
+    public void DoAttack()
+    {
+        
+        this.Animator.SetTrigger("Attack1");
+        
+            
+
+    }
 }

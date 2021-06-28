@@ -12,10 +12,9 @@ public class InputScript : MonoBehaviour
         gameManager = GetComponent<GameManager>();
     }
 
-    public void OnAttack
-        (InputValue value){
+    public void OnAttack (InputValue value){
         if ((float)value.Get() == 1f){
-            gameManager.DisparoDelJugador();
+            gameManager.PlayerAttack();
         }
     }
 

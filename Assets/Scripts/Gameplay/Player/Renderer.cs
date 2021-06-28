@@ -13,9 +13,4 @@ public class Renderer : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Flip(string direction){
-        if(direction == "left") spriteRenderer.flipX = true;
-        if (direction == "right") spriteRenderer.flipX = false;
-
-    }
 }
