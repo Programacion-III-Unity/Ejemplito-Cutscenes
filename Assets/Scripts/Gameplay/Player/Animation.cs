@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Animation : MonoBehaviour{
-    [SerializeField] Jugador jugadorScript;
+    [SerializeField] Jugador playerScript;
     public Animator Animator;
 
     private void Start(){
-        jugadorScript = GetComponent<Jugador>();
+        playerScript = GetComponent<Jugador>();
         Animator = GetComponent<Animator>();
     }
 

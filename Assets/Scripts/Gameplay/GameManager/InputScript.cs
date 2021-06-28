@@ -5,25 +5,31 @@ using UnityEngine.InputSystem;
 
 public class InputScript : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] GameManager gameManager;
 
 
-    public void Start(){
+    void Start(){
         gameManager = GetComponent<GameManager>();
     }
 
-    public void OnAttack (InputValue value){
+    void OnAttack (InputValue value){
         if ((float)value.Get() == 1f){
             gameManager.PlayerAttack();
         }
     }
 
-    public void OnMove(InputValue value) { 
-        gameManager.MoveJugador((Vector2)value.Get());
+    void OnMove(InputValue value) { 
+        gameManager.PlayerMove((Vector2)value.Get());
     }
 
-    public void OnExit(InputValue value){
-        gameManager.SalirDelJuego();
+    void OnExit(InputValue value){
+        gameManager.ExitGame();
     }
+
+    void OnJump(InputValue value)
+    {
+        gameManager.PlayerJump();
+    }
+
 
 }

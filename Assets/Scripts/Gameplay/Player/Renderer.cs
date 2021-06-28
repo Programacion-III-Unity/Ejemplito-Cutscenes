@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Renderer : MonoBehaviour
 {
-    [SerializeField] Jugador jugadorScript;
+    [SerializeField] Jugador playerScript;
     [SerializeField] SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        jugadorScript = GetComponent<Jugador>();
+        playerScript = GetComponent<Jugador>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

@@ -1468,6 +1468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje
       objectReference: {fileID: 0}
+    - target: {fileID: 8842258353148499353, guid: 64571197df159024e8ce6a5b9aa303d4, type: 3}
+      propertyPath: jumpStrength
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64571197df159024e8ce6a5b9aa303d4, type: 3}
 --- !u!4 &1810779158 stripped

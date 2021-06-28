@@ -157,7 +157,7 @@ MonoBehaviour:
   playerScript: {fileID: 5305045885665699228}
   gravity: 3
   walkingSpeed: 5
-  jumpStrength: 0
+  jumpStrength: 2
 --- !u!114 &5111860846089493522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fd674d97325514c909c1070637735a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugadorScript: {fileID: 5305045885665699228}
+  playerScript: {fileID: 0}
   Animator: {fileID: 0}
 --- !u!114 &5008844157835329236
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012c302e3bf30014fbbbbd549a06f16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugadorScript: {fileID: 5305045885665699228}
+  playerScript: {fileID: 0}
   spriteRenderer: {fileID: 695441539467995016}
 --- !u!95 &2127423860535477178
 Animator:

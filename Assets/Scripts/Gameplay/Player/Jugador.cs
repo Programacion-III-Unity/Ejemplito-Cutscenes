@@ -41,7 +41,11 @@ public class Jugador: MonoBehaviour{
 
         if (!this.IsJumping() && !this.IsTouchingGround())
             applyGravity();
+
+        if (this.MustJump())
+            jump();
     }
+
 
     public void SetMovementPositionAndRotation(Vector2 posicion){
         this.nuevaPosicionMovimiento = posicion;
@@ -53,19 +57,24 @@ public class Jugador: MonoBehaviour{
         if (x > 0) playerTransform.rotation = Quaternion.identity;
     }
 
+    public void SetJump(){
+        this.status["Jumping"] = true;
+    }
 
 
-
-     void applyGravity(){
-        movementScript.MoveVertically(this.playerTransform);
+    void applyGravity(){
+        movementScript.MoveVertically(ref this.playerTransform);
     }
 
      void horizontalMovement(){
-        this.playerTransform.position = movementScript.MoveHorizontally(this.playerTransform, this.nuevaPosicionMovimiento);
+        movementScript.MoveHorizontally(ref this.playerTransform, this.nuevaPosicionMovimiento);
         this.animationScript.DoWalk(this.nuevaPosicionMovimiento.x);
-        
     }
 
+    private void jump(){
+        this.status["TouchingGround"] = false;
+        movementScript.Jump(ref this.playerTransform);
+    }
     public void Attack(){
         this.status["Attacking"] = true;
         this.animationScript.DoAttack();
@@ -92,20 +101,28 @@ public class Jugador: MonoBehaviour{
         if (this.status["Jumping"]) return true;
         else return false;
     }
-     bool IsTouchingGround(){
+    public bool IsTouchingGround(){
         if (this.status["TouchingGround"]) return true;
         else return false;
-        
+    }
+    private bool MustJump(){
+        if (this.status["Jumping"] && this.status["TouchingGround"]) return true;
+        else return false;
     }
 
-    private void OnTriggerEnter2D(Collider2D otherObject){
+    void OnTriggerEnter2D(Collider2D otherObject){
         GameObject objeto = otherObject.gameObject;
-        if (objeto.tag == "Ground") this.status["TouchingGround"] = true;
+        if (objeto.tag == "Ground"){
+            this.status["TouchingGround"] = true;
+            this.status["Jumping"] = false;
+        }
     }
-    private void OnTriggerExit2D(Collider2D otherObject)
-    {
+    void OnTriggerExit2D(Collider2D otherObject){
         GameObject objeto = otherObject.gameObject;
-        if (objeto.tag == "Ground") this.status["TouchingGround"] = false;
+        if (objeto.tag == "Ground"){
+            this.status["TouchingGround"] = false;
+            this.status["Jumping"] = true;
+        }
     }
 
     void OnDrawGizmosSelected(){

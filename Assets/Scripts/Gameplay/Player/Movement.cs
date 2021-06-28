@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,19 +16,19 @@ public class Movement : MonoBehaviour
         playerScript = GetComponent<Jugador>();
     }
 
-    public Vector2 MoveHorizontally(Transform gameObject, Vector2 newPosition){
+    public void MoveHorizontally(ref Transform gameObject, Vector2 newPosition){
         float speedScaled = Time.fixedDeltaTime * walkingSpeed;
         gameObject.Translate(Vector3.right * newPosition.x * speedScaled , Space.World);
-        return gameObject.position;
+        
     }
 
-    public Vector2 MoveVertically(Transform gameObject){
+    public void MoveVertically(ref Transform gameObject){
         float gravityScaled = Time.fixedDeltaTime * gravity;
         gameObject.Translate(Vector3.down * gravityScaled, Space.World);
-        return gameObject.position;
     }
 
-
-
-
+    public void Jump(ref Transform gameObject){
+        float jumpStrengthScaled = Time.fixedDeltaTime * jumpStrength;
+        gameObject.Translate(Vector3.up * jumpStrengthScaled);
+    }
 }
