@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void MoveJugador(Vector2 posicionNueva){
-        jugadorScript.SetMovementPositionAndRotation(posicionNueva);
+        if(!jugadorScript.IsAttacking())
+            jugadorScript.SetMovementPositionAndRotation(posicionNueva);
         
     }
 

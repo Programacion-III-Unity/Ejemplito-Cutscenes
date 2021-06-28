@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animation : MonoBehaviour
-{
+public class Animation : MonoBehaviour{
     [SerializeField] Jugador jugadorScript;
     public Animator Animator;
 
@@ -13,8 +12,7 @@ public class Animation : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
-    public void DoWalk(float speed)
-    {
+    public void DoWalk(float speed){
 
         if (speed == 0f){
             this.Animator.speed = 1f;
@@ -22,18 +20,15 @@ public class Animation : MonoBehaviour
         
         }
         else{
-        
             this.Animator.speed = Mathf.Abs(Mathf.Clamp(speed,0.5f,1f));
             this.Animator.SetBool("Run", true);
         }
     }
 
-    public void DoAttack()
-    {
-        
+    public void DoAttack(){
+        this.Animator.speed = 1f;
+        this.Animator.SetBool("Run", false);
         this.Animator.SetTrigger("Attack1");
-        
-            
 
     }
 }

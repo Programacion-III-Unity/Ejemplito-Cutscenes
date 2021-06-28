@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jugador: MonoBehaviour
-{
+public class Jugador: MonoBehaviour{
     [SerializeField] private float velocidad;
     [SerializeField] private Movement movementScript;
     [SerializeField] private Animation animationScript;
@@ -15,26 +14,24 @@ public class Jugador: MonoBehaviour
 
     private Vector2 nuevaPosicionMovimiento;
     private Dictionary<string, bool> status;
-
     Transform playerTransform;
-    
     LayerMask enemyLayers;
 
     
     
     
     void Start() {
-        playerTransform = GetComponent<Transform>();
-        movementScript = GetComponent<Movement>();
-        gameManager = GetComponent<GameManager>();
-        animationScript = GetComponent<Animation>();
-        rendererScript = GetComponent<Renderer>();
+        this.playerTransform = GetComponent<Transform>();
+        this.movementScript = GetComponent<Movement>();
+        this.gameManager = GetComponent<GameManager>();
+        this.animationScript = GetComponent<Animation>();
+        this.rendererScript = GetComponent<Renderer>();
 
-        status = new Dictionary<string, bool>();
-        status.Add("Jumping", false);
-        status.Add("Attacking", false);
-        status.Add("Idle", false);
-        status.Add("Running", false);
+        this.status = new Dictionary<string, bool>();
+        this.status.Add("Jumping", false);
+        this.status.Add("Attacking", false);
+        this.status.Add("Idle", false);
+        this.status.Add("Running", false);
 
     }
 
@@ -49,34 +46,42 @@ public class Jugador: MonoBehaviour
     }
 
     void Update(){
-        Walk();
+        if(!this.IsAttacking())
+            Walk();
     }
 
 
     private void Walk(){
-        playerTransform.position = movementScript.MoveHorizontally(playerTransform, nuevaPosicionMovimiento, velocidad);
-        animationScript.DoWalk(nuevaPosicionMovimiento.x);
+        this.playerTransform.position = movementScript.MoveHorizontally(this.playerTransform, this.nuevaPosicionMovimiento, this.velocidad);
+        this.animationScript.DoWalk(this.nuevaPosicionMovimiento.x);
         
     }
 
     public void Attack(){
-        
-        animationScript.DoAttack();
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, enemyLayers);
-
-        foreach(Collider2D enemy in enemiesHit)
-        {
-            Debug.Log("Hit" + enemy.name);
-        }
-        //nuevaBala.transform.parent = GameObject.Find("__Dynamic").transform;
-
+        this.status["Attacking"] = true;
+        this.animationScript.DoAttack();
+        detectDamagedEnemies();
     }
 
+    public bool IsAttacking(){
+        if (this.status["Attacking"]) return true;
+        else return false;
+    }
 
-    void OnDrawGizmosSelected()
-    {
-        if (AttackPoint == null) return;
-        Gizmos.DrawSphere(AttackPoint.position, attackRange);
+    private void detectDamagedEnemies(){
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(this.AttackPoint.position, this.attackRange, this.enemyLayers);
+        foreach (Collider2D enemy in enemiesHit){
+            Debug.Log("Hit" + enemy.name);
+        }
+    }
+
+    private void attackEnd(){
+        this.status["Attacking"] = false;
+    }
+
+    void OnDrawGizmosSelected(){
+        if (this.AttackPoint == null) return;
+        Gizmos.DrawSphere(this.AttackPoint.position, this.attackRange);
     }
 
     
