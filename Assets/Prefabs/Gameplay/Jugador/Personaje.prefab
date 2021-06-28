@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1722402803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1722402804}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1722402804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722402803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.28, y: 0.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5305045885665699224}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5305045885665699229
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +45,8 @@ GameObject:
   - component: {fileID: 5111860846089493522}
   - component: {fileID: 5008844157835329236}
   - component: {fileID: 2127423860535477178}
+  - component: {fileID: 278620295}
+  - component: {fileID: 278620293}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Untagged
@@ -32,7 +64,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.8563, y: 0.0357, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
-  m_Children: []
+  m_Children:
+  - {fileID: 1722402804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -73,8 +106,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1663360589
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: ea4509161a5916448bf5bedfb66b2cb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,8 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc6bfe0d2b4f4e40af88f2f169d46d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bala: {fileID: 2636755844186465622, guid: e0506209c3f6d0845adf85ed77947e48, type: 3}
-  velocidad: 5
+  attackRange: 0.4
+  actorHeight: 0.1
+  AttackPoint: {fileID: 1722402804}
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 8
   movementScript: {fileID: 8842258353148499353}
   animationScript: {fileID: 5111860846089493522}
   rendererScript: {fileID: 5008844157835329236}
@@ -117,7 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8f7d0e179fd714f8f1ed9c481400d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugadorScript: {fileID: 5305045885665699228}
+  playerScript: {fileID: 5305045885665699228}
+  gravity: 3
+  walkingSpeed: 5
+  jumpStrength: 0
 --- !u!114 &5111860846089493522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,3 +205,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &278620295
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5305045885665699229}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &278620293
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5305045885665699229}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10490197, y: 0.14593518}
+  m_Size: {x: 0.11689327, y: 0.2802565}
+  m_Direction: 0

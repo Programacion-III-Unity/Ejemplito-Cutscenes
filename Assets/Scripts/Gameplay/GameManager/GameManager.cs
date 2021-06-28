@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour {
         jugadorScript = GameObject.Find("Personaje").GetComponent<Jugador>(); // BUG: Lo instanciamos a mano porque no lo toma del inspector
     }
     public void PlayerAttack(){
-        jugadorScript.Attack();
+        if(!jugadorScript.IsAttacking())
+            jugadorScript.Attack();
     }
 
     public void MoveJugador(Vector2 posicionNueva){

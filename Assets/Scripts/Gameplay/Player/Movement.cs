@@ -4,34 +4,27 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] Jugador jugadorScript;
+    [SerializeField] Jugador playerScript;
+    [SerializeField] float gravity;
+    [SerializeField] float walkingSpeed;
+    [SerializeField] float jumpStrength;
 
-    private void Start(){
-        jugadorScript = GetComponent<Jugador>();
+
+
+     void Start(){
+        playerScript = GetComponent<Jugador>();
     }
 
-
-
-    public Vector2 MoveHorizontally(Transform gameObject, Vector2 nuevaPosicion, float velocidad){
-        gameObject.Translate(Vector3.right * nuevaPosicion.x * Time.deltaTime * velocidad, Space.World);
-        gameObject.position = new Vector3(
-            ClamplearEjeX(gameObject.position.x),
-            gameObject.position.y,
-            gameObject.position.z
-        ) ;
-
+    public Vector2 MoveHorizontally(Transform gameObject, Vector2 newPosition){
+        float speedScaled = Time.fixedDeltaTime * walkingSpeed;
+        gameObject.Translate(Vector3.right * newPosition.x * speedScaled , Space.World);
         return gameObject.position;
     }
 
-    private float ClamplearEjeX(float posicion){
-        return Mathf.Clamp(posicion, (ObtenerLimiteDePantalla().x * -1f), ObtenerLimiteDePantalla().x);
-    }
-    private float ClamplearEjeY(float posicion){
-        return Mathf.Clamp(posicion, (ObtenerLimiteDePantalla().y * -1f), ObtenerLimiteDePantalla().y);
-    }
-
-    private Vector2 ObtenerLimiteDePantalla(){
-        return Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    public Vector2 MoveVertically(Transform gameObject){
+        float gravityScaled = Time.fixedDeltaTime * gravity;
+        gameObject.Translate(Vector3.down * gravityScaled, Space.World);
+        return gameObject.position;
     }
 
 
