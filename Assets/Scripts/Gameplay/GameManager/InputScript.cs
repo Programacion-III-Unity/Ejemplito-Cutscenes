@@ -18,7 +18,7 @@ public class InputScript : MonoBehaviour
         }
     }
 
-    void OnMove(InputValue value) { 
+    void OnMove(InputValue value) {
         gameManager.PlayerMove((Vector2)value.Get());
     }
 
@@ -28,7 +28,7 @@ public class InputScript : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        gameManager.PlayerJump();
+        //
     }
 
 

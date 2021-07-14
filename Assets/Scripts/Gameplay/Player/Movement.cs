@@ -10,25 +10,47 @@ public class Movement : MonoBehaviour
     [SerializeField] float walkingSpeed;
     [SerializeField] float jumpStrength;
 
+    Vector2 newMovementPosition;
 
 
-     void Start(){
+
+    void Start(){
         playerScript = GetComponent<Jugador>();
     }
 
-    public void MoveHorizontally(ref Transform gameObject, Vector2 newPosition){
+    private void FixedUpdate(){
+        if (!playerScript.IsTouchingGround())
+            this.applyGravity();
+
+        if(!playerScript.IsAttacking())
+            this.MovePlayerHorizontally(newMovementPosition);
+    }
+
+    void applyGravity(){
+        this.MovePlayerVertically();
+    }
+
+    public void SetNewMovementPosition(Vector2 position){
+        this.newMovementPosition = position;
+        this.managePlayerFlip(position.x);
+    }
+    public void MovePlayerHorizontally(Vector2 newPosition){
         float speedScaled = Time.fixedDeltaTime * walkingSpeed;
-        gameObject.Translate(Vector3.right * newPosition.x * speedScaled , Space.World);
+        playerScript.playerTransform.Translate(Vector3.right * newPosition.x * speedScaled , Space.World);
+        playerScript.animationScript.DoWalk(newPosition.x);
         
     }
 
-    public void MoveVertically(ref Transform gameObject){
-        float gravityScaled = Time.fixedDeltaTime * gravity;
-        gameObject.Translate(Vector3.down * gravityScaled, Space.World);
+    private void managePlayerFlip(float x){
+        if (x < 0) playerScript.playerTransform.rotation = Quaternion.Euler(0, 180, 0);
+        if (x > 0) playerScript.playerTransform.rotation = Quaternion.identity;
+        
     }
 
-    public void Jump(ref Transform gameObject){
-        float jumpStrengthScaled = Time.fixedDeltaTime * jumpStrength;
-        gameObject.Translate(Vector3.up * jumpStrengthScaled);
+    public void MovePlayerVertically(){
+        float gravityScaled = Time.fixedDeltaTime * gravity;
+        playerScript.playerTransform.Translate(Vector3.down * gravityScaled, Space.World);
     }
+
+
 }

@@ -4,26 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Jugador: MonoBehaviour{
+    public Movement movementScript;
+    public Animation animationScript;
+    public Transform playerTransform;
+
     [SerializeField] float attackRange;
     [SerializeField] float actorHeight;
     [SerializeField] Transform AttackPoint;
     [SerializeField] LayerMask collisionLayer;
-    [SerializeField] Movement movementScript;
-    [SerializeField] Animation animationScript;
     [SerializeField] Renderer rendererScript;
-    [SerializeField] GameManager gameManager;
-    
 
 
-    Transform playerTransform;
-    Vector2 nuevaPosicionMovimiento;
+    GameManager gameManager;
     LayerMask enemyLayers;
     Dictionary<string, bool> status;
 
     void Start() {
+        this.gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         this.playerTransform = GetComponent<Transform>();
         this.movementScript = GetComponent<Movement>();
-        this.gameManager = GetComponent<GameManager>();
         this.animationScript = GetComponent<Animation>();
         this.rendererScript = GetComponent<Renderer>();
 
@@ -35,46 +34,21 @@ public class Jugador: MonoBehaviour{
         this.status.Add("TouchingGround", false);
     }
 
-    void FixedUpdate(){
-        if (!this.IsAttacking())
-            horizontalMovement();
+    public bool IsAttacking(){
+        if (this.status["Attacking"]) return true;
+        else return false;
+    }
+    public bool IsJumping(){
+        if (this.status["Jumping"]) return true;
+        return false;
+    }
 
-        if (!this.IsJumping() && !this.IsTouchingGround())
-            applyGravity();
-
-        if (this.MustJump())
-            jump();
+    public bool IsTouchingGround(){
+        if (this.status["TouchingGround"]) return true;
+        else return false;
     }
 
 
-    public void SetMovementPositionAndRotation(Vector2 posicion){
-        this.nuevaPosicionMovimiento = posicion;
-        flip(posicion.x);
-    }
-
-    void flip(float x){
-        if (x < 0) playerTransform.rotation = Quaternion.Euler(0, 180, 0);
-        if (x > 0) playerTransform.rotation = Quaternion.identity;
-    }
-
-    public void SetJump(){
-        this.status["Jumping"] = true;
-    }
-
-
-    void applyGravity(){
-        movementScript.MoveVertically(ref this.playerTransform);
-    }
-
-     void horizontalMovement(){
-        movementScript.MoveHorizontally(ref this.playerTransform, this.nuevaPosicionMovimiento);
-        this.animationScript.DoWalk(this.nuevaPosicionMovimiento.x);
-    }
-
-    private void jump(){
-        this.status["TouchingGround"] = false;
-        movementScript.Jump(ref this.playerTransform);
-    }
     public void Attack(){
         this.status["Attacking"] = true;
         this.animationScript.DoAttack();
@@ -92,23 +66,6 @@ public class Jugador: MonoBehaviour{
         }
     }
 
-    public bool IsAttacking(){
-        if (this.status["Attacking"]) return true;
-        else return false;
-    }
-
-    public bool IsJumping(){
-        if (this.status["Jumping"]) return true;
-        else return false;
-    }
-    public bool IsTouchingGround(){
-        if (this.status["TouchingGround"]) return true;
-        else return false;
-    }
-    private bool MustJump(){
-        if (this.status["Jumping"] && this.status["TouchingGround"]) return true;
-        else return false;
-    }
 
     void OnTriggerEnter2D(Collider2D otherObject){
         GameObject objeto = otherObject.gameObject;

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 
     public void PlayerMove(Vector2 posicionNueva){
         if(!playerScript.IsAttacking())
-            playerScript.SetMovementPositionAndRotation(posicionNueva);
+            playerScript.movementScript.SetNewMovementPosition(posicionNueva);
         
     }
 
@@ -25,9 +25,5 @@ public class GameManager : MonoBehaviour {
         Application.Quit();
     }
 
-    public void PlayerJump(){
-        if (playerScript.IsTouchingGround()){
-            playerScript.SetJump();
-        }
-    }
+
 }
