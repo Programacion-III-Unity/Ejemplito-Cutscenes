@@ -28,7 +28,7 @@ public class InputScript : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        //
+        gameManager.PlayerJump();
     }
 
 

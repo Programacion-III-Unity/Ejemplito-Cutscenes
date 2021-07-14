@@ -32,8 +32,12 @@ public class Jugador: MonoBehaviour{
         this.status.Add("Idle", false);
         this.status.Add("Running", false);
         this.status.Add("TouchingGround", false);
+        this.status.Add("Falling", false);
     }
 
+    public void SetStatus(string stat, bool value){
+        this.status[stat] = value;
+    }
     public bool IsAttacking(){
         if (this.status["Attacking"]) return true;
         else return false;
@@ -49,6 +53,7 @@ public class Jugador: MonoBehaviour{
     }
 
 
+    
     public void Attack(){
         this.status["Attacking"] = true;
         this.animationScript.DoAttack();
@@ -84,7 +89,7 @@ public class Jugador: MonoBehaviour{
 
     void OnDrawGizmosSelected(){
         if (this.AttackPoint == null) return;
-        Gizmos.DrawSphere(this.AttackPoint.position, this.attackRange);
+        Gizmos.DrawWireSphere(this.AttackPoint.position, this.attackRange);
     }
 
     

@@ -31,4 +31,18 @@ public class Animation : MonoBehaviour{
         this.Animator.SetTrigger("Attack1");
 
     }
+
+    public void JumpUp(){
+        this.Animator.speed = 1f;
+        this.Animator.SetBool("Jumping",true);
+        this.Animator.SetBool("Falling", false);
+    }
+
+    public void FallDown(){
+        this.Animator.speed = 1f;
+        this.Animator.SetBool("Jumping", false);
+        this.Animator.SetBool("Falling", true);
+    }
+
+
 }

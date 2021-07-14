@@ -132,16 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc6bfe0d2b4f4e40af88f2f169d46d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementScript: {fileID: 8842258353148499353}
+  animationScript: {fileID: 5111860846089493522}
+  playerTransform: {fileID: 0}
   attackRange: 0.4
   actorHeight: 0.1
   AttackPoint: {fileID: 1722402804}
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 8
-  movementScript: {fileID: 8842258353148499353}
-  animationScript: {fileID: 5111860846089493522}
+    m_Bits: 64
   rendererScript: {fileID: 5008844157835329236}
-  gameManager: {fileID: 0}
 --- !u!114 &8842258353148499353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScript: {fileID: 5305045885665699228}
-  gravity: 3
+  gravity: 1
   walkingSpeed: 5
-  jumpStrength: 2
+  jumpStrength: 20
 --- !u!114 &5111860846089493522
 MonoBehaviour:
   m_ObjectHideFlags: 0

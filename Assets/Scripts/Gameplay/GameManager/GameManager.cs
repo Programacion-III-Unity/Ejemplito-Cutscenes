@@ -17,8 +17,14 @@ public class GameManager : MonoBehaviour {
 
     public void PlayerMove(Vector2 posicionNueva){
         if(!playerScript.IsAttacking())
-            playerScript.movementScript.SetNewMovementPosition(posicionNueva);
+            playerScript.movementScript.SetNewHorizontalPosition(posicionNueva.x);
         
+    }
+
+    public void PlayerJump(){
+        if (!playerScript.IsAttacking() && playerScript.IsTouchingGround())
+            playerScript.movementScript.PlayerStartJump();
+
     }
 
     public void ExitGame(){

@@ -9,48 +9,92 @@ public class Movement : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] float walkingSpeed;
     [SerializeField] float jumpStrength;
+    
 
-    Vector2 newMovementPosition;
-
-
+    float newVerticalPosition;
+    float horizontalVelocity;
+    float verticalVelocity;
 
     void Start(){
         playerScript = GetComponent<Jugador>();
+        this.verticalVelocity = 0;
+        this.horizontalVelocity = 0;
     }
 
-    private void FixedUpdate(){
-        if (!playerScript.IsTouchingGround())
-            this.applyGravity();
+    bool playerIsFalling() => this.verticalVelocity < 0;
 
-        if(!playerScript.IsAttacking())
-            this.MovePlayerHorizontally(newMovementPosition);
+    void Update(){
+        if (playerScript.IsJumping() && playerScript.IsTouchingGround())
+            verticalVelocity += jumpStrength;
     }
 
-    void applyGravity(){
-        this.MovePlayerVertically();
+    void FixedUpdate(){
+        setMovementVelocity();
+        checkIfPlayerTouchesGround();
+        managePlayerMovement();
     }
 
-    public void SetNewMovementPosition(Vector2 position){
-        this.newMovementPosition = position;
-        this.managePlayerFlip(position.x);
+    void setMovementVelocity(){
+        horizontalVelocity = newVerticalPosition * walkingSpeed;
+        verticalVelocity -= gravity;
     }
-    public void MovePlayerHorizontally(Vector2 newPosition){
-        float speedScaled = Time.fixedDeltaTime * walkingSpeed;
-        playerScript.playerTransform.Translate(Vector3.right * newPosition.x * speedScaled , Space.World);
-        playerScript.animationScript.DoWalk(newPosition.x);
-        
+    void checkIfPlayerTouchesGround(){
+        if (playerIsFalling() && playerScript.IsTouchingGround()) { 
+            verticalVelocity = 0;
+            playerScript.SetStatus("Jumping", false);
+            playerScript.SetStatus("Falling", false);
+            playerScript.animationScript.Animator.SetBool("Falling", false);
+            playerScript.animationScript.Animator.SetBool("Jumping", false);
+        }
     }
 
-    private void managePlayerFlip(float x){
+    void managePlayerMovement(){
+        setPlayerRunningStatus();
+        managePlayerFlip(newVerticalPosition);
+        movePlayer();
+    }
+
+    void managePlayerFlip(float x){
         if (x < 0) playerScript.playerTransform.rotation = Quaternion.Euler(0, 180, 0);
         if (x > 0) playerScript.playerTransform.rotation = Quaternion.identity;
+
+    }
+
+    private void setPlayerRunningStatus(){
+        if (newVerticalPosition == 0 && playerScript.IsTouchingGround())
+            playerScript.SetStatus("Running", true);
+        else
+            playerScript.SetStatus("Running", false);
+    }
+
+    private void movePlayer(){
+        var movementVector = new Vector3(horizontalVelocity * Time.fixedDeltaTime, verticalVelocity * Time.fixedDeltaTime);
+        playerScript.playerTransform.Translate(movementVector, Space.World);
+        playerScript.animationScript.DoWalk(newVerticalPosition);
+
+        if (!playerScript.IsTouchingGround() && verticalVelocity < 0) { 
+            playerScript.SetStatus("Jumping", false);
+            playerScript.SetStatus("Falling", true);
+
+            if(!playerScript.animationScript.Animator.GetBool("Falling")) playerScript.animationScript.FallDown();
+        }
         
     }
 
-    public void MovePlayerVertically(){
-        float gravityScaled = Time.fixedDeltaTime * gravity;
-        playerScript.playerTransform.Translate(Vector3.down * gravityScaled, Space.World);
+
+    public void SetNewHorizontalPosition(float position){
+        this.newVerticalPosition = position;
     }
+    
+
+    
+    public void PlayerStartJump(){
+        playerScript.SetStatus("Jumping", true);
+        playerScript.SetStatus("Falling", false);
+        playerScript.animationScript.JumpUp();
+    }
+
+    
 
 
 }
