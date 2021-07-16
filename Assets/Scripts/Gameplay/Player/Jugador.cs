@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Jugador: MonoBehaviour{
     public Movement movementScript;
@@ -13,7 +14,7 @@ public class Jugador: MonoBehaviour{
     [SerializeField] Transform AttackPoint;
     [SerializeField] LayerMask collisionLayer;
     [SerializeField] Renderer rendererScript;
-
+    [SerializeField] CinemachineVirtualCamera cinemachineCamera;
 
     GameManager gameManager;
     LayerMask enemyLayers;
@@ -25,6 +26,7 @@ public class Jugador: MonoBehaviour{
         this.movementScript = GetComponent<Movement>();
         this.animationScript = GetComponent<Animation>();
         this.rendererScript = GetComponent<Renderer>();
+        this.cinemachineCamera = GetComponent<CinemachineVirtualCamera>(); 
 
         this.status = new Dictionary<string, bool>();
         this.status.Add("Jumping", false);
@@ -77,6 +79,15 @@ public class Jugador: MonoBehaviour{
         if (objeto.tag == "Ground"){
             this.status["TouchingGround"] = true;
             this.status["Jumping"] = false;
+            this.status["Falling"] = false;
+        }
+        if (objeto.tag == "Finish")
+        {
+            // Hacer que la camara deje de seguir
+        }
+
+        if (objeto.tag == "HellItSelf"){
+            Destroy(this.gameObject);
         }
     }
     void OnTriggerExit2D(Collider2D otherObject){
