@@ -12,20 +12,26 @@ echo "Project version: $env:projectVersion"
 echo ""
 echo "Building Windows 64 bit executable, Using build method: $buildMethodWin64"
 
-$resultado64 = Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $buildPath -executeMethod $buildMethodWin64 -quit"
+Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $buildPath -executeMethod $buildMethodWin64 -quit"
+
+if($? -ne "true"){
+	echo $?
+	echo "Error building Win 64 Executable"
+	exit 1
+}
 
 
 echo "Building Windows 32 bit executable, Using build method: $buildMethodWin32"
 
-$resultado32 = Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $buildPath -executeMethod $buildMethodWin32 -quit"
 
-if($resultado32 -ne 0){
-   exit 1
+if($? -ne "true"){
+	echo $?
+	echo "Error building Win 32 Executable"
+	exit 1
 }
-   
-if($resultado64 -ne 0){
-  exit 1
-}
+
+
+Start-Process -Wait 'C:\Program Files\Unity\Hub\Editor\2020.3.14f1\Editor\Unity.exe' -ArgumentList "-nographics -batchmode -projectPath $buildPath -executeMethod $buildMethodWin32 -quit"
 
 exit 0
 
