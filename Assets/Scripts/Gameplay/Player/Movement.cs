@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
     float horizontalVelocity;
     float verticalVelocity;
 
+
     void Start(){
         playerScript = GetComponent<Jugador>();
         this.verticalVelocity = 0;
@@ -25,7 +26,7 @@ public class Movement : MonoBehaviour
 
     void Update(){
         if (playerScript.IsJumping() && playerScript.IsTouchingGround())
-            verticalVelocity += jumpStrength;
+            verticalVelocity = jumpStrength;
     }
 
     void FixedUpdate(){
@@ -94,7 +95,35 @@ public class Movement : MonoBehaviour
         playerScript.animationScript.JumpUp();
     }
 
-    
 
 
+    public float GetGravity()
+    {
+        return this.gravity;
+    }
+
+    public float GetWalkingSpeed()
+    {
+        return this.walkingSpeed;
+    }
+
+    public float GetJumpStrenght()
+    {
+        return this.jumpStrength;
+    }
+
+    public float GetVerticalVelocity()
+    {
+        return this.verticalVelocity;
+    }
+
+    public float GetHorizontalVelocity()
+    {
+        return this.horizontalVelocity;
+    }
+
+    public float GetNewVerticalPosition()
+    {
+        return this.newVerticalPosition;
+    }
 }

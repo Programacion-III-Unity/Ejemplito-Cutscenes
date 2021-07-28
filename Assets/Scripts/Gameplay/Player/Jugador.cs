@@ -48,6 +48,11 @@ public class Jugador: MonoBehaviour{
         if (this.status["Jumping"]) return true;
         return false;
     }
+    public bool IsFalling()
+    {
+        if (this.status["Falling"]) return true;
+        return false;
+    }
 
     public bool IsTouchingGround(){
         if (this.status["TouchingGround"]) return true;
