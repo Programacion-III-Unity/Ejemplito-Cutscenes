@@ -12,21 +12,14 @@ public class Jugador: MonoBehaviour{
     [SerializeField] float attackRange;
     [SerializeField] float actorHeight;
     [SerializeField] Transform AttackPoint;
-    [SerializeField] LayerMask collisionLayer;
-    [SerializeField] Renderer rendererScript;
-    [SerializeField] CinemachineVirtualCamera cinemachineCamera;
+    [SerializeField] LayerMask enemyLayers;
 
-    GameManager gameManager;
-    LayerMask enemyLayers;
     Dictionary<string, bool> status;
 
     void Start() {
-        this.gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         this.playerTransform = GetComponent<Transform>();
         this.movementScript = GetComponent<Movement>();
         this.animationScript = GetComponent<Animation>();
-        this.rendererScript = GetComponent<Renderer>();
-        this.cinemachineCamera = GetComponent<CinemachineVirtualCamera>(); 
 
         this.status = new Dictionary<string, bool>();
         this.status.Add("Jumping", false);
@@ -64,7 +57,6 @@ public class Jugador: MonoBehaviour{
     public void Attack(){
         this.status["Attacking"] = true;
         this.animationScript.DoAttack();
-        detectDamagedEnemies();
     }
 
      void attackEnd(){
@@ -72,37 +64,38 @@ public class Jugador: MonoBehaviour{
     }
 
      void detectDamagedEnemies(){
-        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(this.AttackPoint.position, this.attackRange, this.enemyLayers);
+        Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in enemiesHit){
-            Debug.Log("Hit" + enemy.name);
+            Destroy(enemy.gameObject);
         }
     }
 
-
-    void OnTriggerEnter2D(Collider2D otherObject){
+    
+    void OnCollisionEnter2D(Collision2D otherObject){
         GameObject objeto = otherObject.gameObject;
+        
         if (objeto.tag == "Ground"){
             this.status["TouchingGround"] = true;
             this.status["Jumping"] = false;
             this.status["Falling"] = false;
         }
-        if (objeto.tag == "Finish")
-        {
-            // Hacer que la camara deje de seguir
-        }
 
-        if (objeto.tag == "HellItSelf"){
-            Destroy(this.gameObject);
-        }
+
     }
-    void OnTriggerExit2D(Collider2D otherObject){
-        GameObject objeto = otherObject.gameObject;
-        if (objeto.tag == "Ground"){
+    void OnCollisionExit2D(Collision2D otherObject){
+        
+        if (otherObject.gameObject.tag == "Ground"){
             this.status["TouchingGround"] = false;
             this.status["Jumping"] = true;
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D otherObject){
+        if (otherObject.gameObject.tag == "HellItSelf"){
+            Destroy(this.gameObject);
+        }
+    }
     void OnDrawGizmosSelected(){
         if (this.AttackPoint == null) return;
         Gizmos.DrawWireSphere(this.AttackPoint.position, this.attackRange);

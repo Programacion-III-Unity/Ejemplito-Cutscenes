@@ -4,7 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+
     private Jugador playerScript;
+    private Score scoreScript;
+
+
+
+    public static GameManager GM;
+    void Awake(){
+        if (GM != null)
+            GameObject.Destroy(GM);
+        else
+            GM = this;
+        DontDestroyOnLoad(this);
+    }
 
     private void Start()
     {
@@ -18,7 +31,6 @@ public class GameManager : MonoBehaviour {
     public void PlayerMove(Vector2 posicionNueva){
         if(!playerScript.IsAttacking())
             playerScript.movementScript.SetNewHorizontalPosition(posicionNueva.x);
-        
     }
 
     public void PlayerJump(){

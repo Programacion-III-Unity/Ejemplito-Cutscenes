@@ -7,13 +7,12 @@ public class Score : MonoBehaviour {
 
     private Text scoreText;
     [SerializeField] private GameObject winText;
-    [SerializeField] private GameManager gameManager;
 
 
     private void Start()
     {
         scoreText = GetComponent<Text>();
-        gameManager = GetComponent<GameManager>();
+
     }
 
     private void Update(){
