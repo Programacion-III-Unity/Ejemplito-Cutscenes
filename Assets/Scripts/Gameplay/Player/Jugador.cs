@@ -9,10 +9,14 @@ public class Jugador: MonoBehaviour{
     public Animation animationScript;
     public Transform playerTransform;
 
+    
+
+
     [SerializeField] float attackRange;
     [SerializeField] float actorHeight;
     [SerializeField] Transform AttackPoint;
     [SerializeField] LayerMask enemyLayers;
+    [SerializeField] int HP;
 
     Dictionary<string, bool> status;
 
@@ -28,8 +32,14 @@ public class Jugador: MonoBehaviour{
         this.status.Add("Running", false);
         this.status.Add("TouchingGround", false);
         this.status.Add("Falling", false);
+
+        this.HP = 100;
     }
 
+    public int GetHP()
+    {
+        return this.HP;
+    }
     public void SetStatus(string stat, bool value){
         this.status[stat] = value;
     }
@@ -67,6 +77,7 @@ public class Jugador: MonoBehaviour{
         Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(AttackPoint.position, attackRange, enemyLayers);
         foreach (Collider2D enemy in enemiesHit){
             Destroy(enemy.gameObject);
+            Score.PlayerScore += 10;
         }
     }
 
@@ -78,6 +89,16 @@ public class Jugador: MonoBehaviour{
             this.status["TouchingGround"] = true;
             this.status["Jumping"] = false;
             this.status["Falling"] = false;
+        }
+
+        if(objeto.tag == "Enemy"){
+            this.HP -= 10;
+            if (this.HP <= 0){
+                Debug.Log("Perdiste gil");
+                Destroy(this.gameObject);
+            }
+
+
         }
 
 

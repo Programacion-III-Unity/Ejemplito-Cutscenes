@@ -8,22 +8,14 @@ public class Score : MonoBehaviour {
     private Text scoreText;
     [SerializeField] private GameObject winText;
 
-
     private void Start()
     {
         scoreText = GetComponent<Text>();
-
     }
 
+    
     private void Update(){
         scoreText.text = "Score: " + PlayerScore;
-
-        if(PlayerScore == 90)
-        {
-
-            winText.SetActive(true);
-            Time.timeScale = 0f;
-        }
     }
 
 

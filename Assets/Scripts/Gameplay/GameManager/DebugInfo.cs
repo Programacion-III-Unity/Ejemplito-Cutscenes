@@ -17,6 +17,7 @@ public class DebugInfo : MonoBehaviour
     void FixedUpdate(){
         debugText.text = "";
         debugText.text += "Player: \n";
+        debugText.text += "HP: " + jugador.GetHP().ToString() + "\n";
         debugText.text += "Posicion X: " + jugador.transform.position.x.ToString() + "\n";
         debugText.text += "Posicion Y: " + jugador.transform.position.y.ToString() + "\n";
         debugText.text += "Jumping: " + jugador.IsJumping().ToString() + "\n";
