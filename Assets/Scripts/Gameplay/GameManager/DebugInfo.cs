@@ -10,13 +10,14 @@ public class DebugInfo : MonoBehaviour
 
     void Start(){
         debugText = GetComponent<Text>();
-        jugador = GameObject.Find("Personaje").GetComponent<Jugador>(); // BUG: Lo instanciamos a mano porque no lo toma del inspector
 
     }
 
     void FixedUpdate(){
+        jugador = GameManager.GM.GetJugador();
         debugText.text = "";
         debugText.text += "Player: \n";
+        debugText.text += "Lives: " + GameManager.GM.GetPlayerLives() + "\n";
         debugText.text += "HP: " + jugador.GetHP().ToString() + "\n";
         debugText.text += "Posicion X: " + jugador.transform.position.x.ToString() + "\n";
         debugText.text += "Posicion Y: " + jugador.transform.position.y.ToString() + "\n";

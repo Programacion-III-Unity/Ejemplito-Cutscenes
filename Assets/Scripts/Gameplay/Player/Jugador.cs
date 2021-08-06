@@ -122,5 +122,9 @@ public class Jugador: MonoBehaviour{
         Gizmos.DrawWireSphere(this.AttackPoint.position, this.attackRange);
     }
 
-    
+    void OnDestroy()
+    {
+        GameManager.GM.PlayerDied();
+    }
+
 }
